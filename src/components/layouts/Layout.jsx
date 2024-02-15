@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import { Outlet as Page } from "react-router";
 import { Link } from "react-router-dom";
-import {LocationOnIcon,LightbulbIcon, HomeIcon} from '../shared/materialUI';
+import {LocationOnIcon,LightbulbIcon, HomeIcon, SettingsIcon} from '../shared/materialUI';
 
 export const Layout = () => {
 
@@ -22,7 +22,7 @@ export const Layout = () => {
                             >
                                 <HomeIcon/>
 
-                                <span className="mx-2 text-sm font-medium">Inicio</span>
+                                <span className="mx-2 text-sm font-medium text-cyan-500">Inicio</span>
                             </Link>
 
                             <Link
@@ -31,7 +31,7 @@ export const Layout = () => {
                             >
                                 <LocationOnIcon/>
 
-                                <span className="mx-2 text-sm font-medium">Ubicación</span>
+                                <span className="mx-2 text-sm font-medium text-cyan-500">Ubicación</span>
                             </Link>
 
                             <Link
@@ -40,7 +40,16 @@ export const Layout = () => {
                             >
                                 <LightbulbIcon/>
 
-                                <span className="mx-2 text-sm font-medium">Luminaria</span>
+                                <span className="mx-2 text-sm font-medium text-cyan-500">Luminaria</span>
+                            </Link>
+
+                            <Link
+                                className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                                to="bombas"
+                            >
+                                <SettingsIcon/>
+
+                                <span className="mx-2 text-sm font-medium text-cyan-500">Bombas y Motores</span>
                             </Link>
 
                         </div>

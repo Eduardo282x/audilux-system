@@ -16,7 +16,7 @@ import {
 
 import { useState } from "react";
 import PropTypes from "prop-types";
-import {StyledTableCell} from './tableShared'
+import {StyledTableCell} from './tableShared.data.js'
 import './tableShared.css'
 // import moment from "moment";
 
@@ -73,6 +73,7 @@ export const TableShared = ({ columns, rows, sendFather }) => {
                                                 <IconButton
                                                     className="editBtn"
                                                     onClick={() => sendData(row, ro.action)}
+                                                    color={ro.colorBtn}
                                                 >
                                                     {setIcon(ro.column)}
                                                 </IconButton>

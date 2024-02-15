@@ -4,6 +4,7 @@ import { Layout } from "./components/layouts/Layout";
 import { Home } from "./components/home/Home.jsx";
 import { Location } from "./components/location/Location.jsx";
 import { Luminaires } from "./components/luminaires/Luminaires.jsx";
+import { BombsMotors } from "./components/bombs/BombsMotors.jsx";
 
 function App() {
 
@@ -22,6 +23,10 @@ function App() {
         {
           path: '/luminaria',
           element: <Luminaires/>
+        },
+        {
+          path: '/bombas',
+          element: <BombsMotors/>
         },
       ]
     },

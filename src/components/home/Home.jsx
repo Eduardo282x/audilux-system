@@ -1,8 +1,8 @@
 export const Home = () => {
     return (
-        <div className="flex flex-col items-center justify-around w-full h-full">
-            <h1>AudiLux</h1>
-            <h1>Bienvenido</h1>
+        <div className="flex flex-col items-center justify-around w-full gap-14">
+            <p className="text-[32px] text-cyan-500">AudiLux</p>
+            <p className="text-[32px] text-cyan-500">Bienvenido</p>
 
             <p>
                 <b>AUDILUX</b> es la primera APP open source desarollada en La Universidad del Zulia

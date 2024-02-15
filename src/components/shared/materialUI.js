@@ -15,6 +15,7 @@ import AddIcon from "@mui/icons-material/Add";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import HomeIcon from '@mui/icons-material/Home';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 export {
     Table,
@@ -33,5 +34,6 @@ export {
     AddIcon,
     LocationOnIcon,
     LightbulbIcon,
-    HomeIcon
+    HomeIcon,
+    SettingsIcon
 }

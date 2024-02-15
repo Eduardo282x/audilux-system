@@ -31,12 +31,14 @@ export const colmuns = [
         header:'Editar',
         column: 'Edit',
         type: 'icon',
+        colorBtn: 'primary',
         filterOption: false
     },
     {
         header:'Eliminar',
         column: 'Delete',
         type: 'icon',
+        colorBtn: 'error',
         filterOption: false
     },
 ];
