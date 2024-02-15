@@ -64,35 +64,29 @@ export const row = [
     },
 ];
 
-export const ubication = [
-    'Venezuela',
-    'Resto del Mundo'
-];
-
-export const optionEdification = [
-    'Apartamento',
-    'Atico',
-    'Bungalow',
-    'Cabaña',
-    'Casa',
-    'Casa en Arbol',
-    'Casona',
-    'Castillo',
-    'Chalets',
-    'Choza',
-    'Cueva',
-    'Duplex',
-    'Edificio',
-    'Establo',
-    'Estudio',
-    'Garaje',
-    'Hacienda',
-    'Hotel',
-    'Loft',
-    'Mansion',
-    'Palacio',
-    'Palafito',
-    'Quinta',
-    'Rancho',
-    'Villa'
-];
+export const capacity = [
+    {value: '1/8', label: ''},
+    {value: '1/6', label: ''},
+    {value: '1/4', label: ''},
+    {value: '1/3', label: ''},
+    {value: '1/2', label: ''},
+    {value: '3/4', label: ''},
+    {value: '1', label: ''},
+    {value: '1 1/2', label: ''},
+    {value: '2', label: ''},
+    {value: '3', label: ''},
+    {value: '4', label: ''},
+    {value: '5', label: ''},
+    {value: '5 1/2', label: ''},
+    {value: '7 1/2', label: ''},
+    {value: '10', label: ''},
+    {value: '15', label: ''},
+    {value: '20', label: ''},
+    {value: '25', label: ''},
+    {value: '30', label: ''},
+    {value: '40', label: ''},
+    {value: '50', label: ''},
+    {value: '60', label: ''},
+    {value: '75', label: ''},
+    {value: '100', label: ''},
+]
