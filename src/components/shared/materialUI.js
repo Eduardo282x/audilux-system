@@ -12,6 +12,9 @@ import EditIcon from "@mui/icons-material/Edit";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import LightbulbIcon from '@mui/icons-material/Lightbulb';
+import HomeIcon from '@mui/icons-material/Home';
 
 export {
     Table,
@@ -27,5 +30,8 @@ export {
     EditIcon,
     InfoIcon,
     DeleteIcon,
-    AddIcon
+    AddIcon,
+    LocationOnIcon,
+    LightbulbIcon,
+    HomeIcon
 }

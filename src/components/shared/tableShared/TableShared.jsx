@@ -51,7 +51,7 @@ export const TableShared = ({ columns, rows, sendFather }) => {
                     <TableHead sx={{ background: "#1565c0" }}>
                         <TableRow>
                             {columns.map((col, ind) => (
-                                <StyledTableCell className="textHead" key={ind}>
+                                <StyledTableCell key={ind}>
                                     {col.header}
                                 </StyledTableCell>
                             ))}
