@@ -1,10 +1,21 @@
 /* eslint-disable react/no-unknown-property */
 import { Outlet as Page } from "react-router";
 import { Link } from "react-router-dom";
-import {LocationOnIcon,LightbulbIcon, HomeIcon, SettingsIcon} from '../shared/materialUI';
+import {
+    LocationOnIcon,
+    LightbulbIcon,
+    HomeIcon,
+    EngineeringIcon,
+} from "../shared/materialUI";
+import { menu } from "./layout.data";
 
 export const Layout = () => {
-
+    const setIcon = (actionIcon) => {
+        if (actionIcon == "home") return <HomeIcon />;
+        if (actionIcon == "location") return <LocationOnIcon />;
+        if (actionIcon == "light") return <LightbulbIcon />;
+        if (actionIcon == "engine") return <EngineeringIcon />;
+    };
 
     return (
         <div className="flex items-center justify-start w-full h-screen">
@@ -16,50 +27,25 @@ export const Layout = () => {
                                 Menu
                             </label>
 
-                            <Link
-                                className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                                to=""
-                            >
-                                <HomeIcon/>
-
-                                <span className="mx-2 text-sm font-medium text-cyan-500">Inicio</span>
-                            </Link>
-
-                            <Link
-                                className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                                to="ubicacion"
-                            >
-                                <LocationOnIcon/>
-
-                                <span className="mx-2 text-sm font-medium text-cyan-500">Ubicación</span>
-                            </Link>
-
-                            <Link
-                                className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                                to="luminaria"
-                            >
-                                <LightbulbIcon/>
-
-                                <span className="mx-2 text-sm font-medium text-cyan-500">Luminaria</span>
-                            </Link>
-
-                            <Link
-                                className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                                to="bombas"
-                            >
-                                <SettingsIcon/>
-
-                                <span className="mx-2 text-sm font-medium text-cyan-500">Bombas y Motores</span>
-                            </Link>
-
+                            {menu.map((options, key) => (
+                                <Link
+                                    key={key}
+                                    className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                                    to={options.location}
+                                >
+                                    {setIcon(options.icon)}
+                                    <span className="mx-2 text-sm font-medium text-cyan-500">
+                                        {options.name}
+                                    </span>
+                                </Link>
+                            ))}
                         </div>
-
                     </nav>
                 </div>
             </aside>
 
             <div className="flex items-center justify-center w-full h-full">
-                <Page/>
+                <Page />
             </div>
         </div>
     );

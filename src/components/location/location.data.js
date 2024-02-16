@@ -1,4 +1,4 @@
-export const colmuns = [
+export const columns = [
     {
         header:'Auditor',
         column: 'auditor',
@@ -31,6 +31,7 @@ export const colmuns = [
         header:'Editar',
         column: 'Edit',
         type: 'icon',
+        action: 'Edit',
         colorBtn: 'primary',
         filterOption: false
     },
@@ -38,6 +39,7 @@ export const colmuns = [
         header:'Eliminar',
         column: 'Delete',
         type: 'icon',
+        action: 'Delete',
         colorBtn: 'error',
         filterOption: false
     },
@@ -62,7 +64,49 @@ export const row = [
         adress: 'Oeste',
         date: '15/02/24',
     },
+    {
+        auditor: 'Auditor',
+        edificate: 'Casa',
+        adress: 'Dirección',
+        date: '15/02/24',
+    },
+    {
+        auditor: 'Auditor2',
+        edificate: 'Casa',
+        adress: 'Centro',
+        date: '15/02/24',
+    },
+    {
+        auditor: 'Auditor4',
+        edificate: 'Terreno',
+        adress: 'Oeste',
+        date: '15/02/24',
+    },
+    {
+        auditor: 'Auditor',
+        edificate: 'Casa',
+        adress: 'Dirección',
+        date: '15/02/24',
+    },
+    {
+        auditor: 'Auditor2',
+        edificate: 'Casa',
+        adress: 'Centro',
+        date: '15/02/24',
+    },
+    {
+        auditor: 'Auditor4',
+        edificate: 'Terreno',
+        adress: 'Oeste',
+        date: '15/02/24',
+    },
 ];
+
+export const optionsComponents = {
+    showSeachInput: true,
+    showAddBtn: true,
+    showTable: true,
+}
 
 export const ubication = [
     'Venezuela',

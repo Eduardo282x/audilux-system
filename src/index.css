@@ -9,10 +9,38 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #415d99;
+
+  /* background-image: url('./assets/Img/Ferreteria-1024x595.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  background-color: #e4e4e7;
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar:vertical {
+  width:.65rem;
+}
+
+::-webkit-scrollbar-button:increment,::-webkit-scrollbar-button {
+  display: none;
+} 
+
+::-webkit-scrollbar-thumb {
+  background-color: #797979;
+  border-radius: 1rem;
+  border: 2px solid #f1f2f3;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;  
 }

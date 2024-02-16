@@ -1,4 +1,4 @@
-export const colmuns = [
+export const columns = [
     {
         header:'Auditor',
         column: 'auditor',
