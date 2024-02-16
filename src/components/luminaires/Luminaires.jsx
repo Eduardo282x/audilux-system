@@ -1,9 +1,9 @@
 import { TableShared } from "../shared/tableShared/TableShared"
 import { row, columns, optionsComponents } from "./luminaires.data";
-import { useState } from "react";
+// import { useState } from "react";
 
 export const Luminaires = () => {
-    const [columnsLuminaries, setColumnsLouminaries] = useState(columns);
+    // const [columnsLuminaries, setColumnsLouminaries] = useState(columns);
 
     const getDataTable = (data) => {
         console.log(data);
@@ -11,7 +11,7 @@ export const Luminaires = () => {
 
     return (
         <div >
-            <TableShared iconTitle={'light'} title={'Luminaria'} columns={columnsLuminaries} rows={row} optionsComponents={optionsComponents} returnData={getDataTable}/>
+            <TableShared iconTitle={'light'} title={'Luminaria'} columns={columns} rows={row} optionsComponents={optionsComponents} returnData={getDataTable}/>
         </div>
     )
 }

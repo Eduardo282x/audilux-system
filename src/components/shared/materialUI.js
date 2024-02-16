@@ -14,6 +14,14 @@ import InputLabel from '@mui/material/InputLabel';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
+import Backdrop from '@mui/material/Backdrop';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Fade from '@mui/material/Fade';
+
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+
 
 import InfoIcon from "@mui/icons-material/Info";
 import EditIcon from "@mui/icons-material/Edit";
@@ -26,10 +34,6 @@ import HomeIcon from '@mui/icons-material/Home';
 import SettingsIcon from '@mui/icons-material/Settings';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import SearchIcon from '@mui/icons-material/Search';
-
-
-
-
 
 export {
     Table,
@@ -48,6 +52,13 @@ export {
     InputLabel,
     OutlinedInput,
     TextField,
+    MenuItem,
+    Select,
+
+    Backdrop,
+    Box,
+    Modal,
+    Fade,
     
     EditIcon,
     InfoIcon,
@@ -59,4 +70,16 @@ export {
     SettingsIcon,
     EngineeringIcon,
     SearchIcon
-}
+};
+
+export const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    borderRadius: '1rem',
+    boxShadow: 24,
+    p: 4,
+};
