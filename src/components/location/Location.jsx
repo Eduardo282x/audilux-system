@@ -1,34 +1,70 @@
-import { useState } from "react"
-import { TableShared } from "../shared/tableShared/TableShared.jsx"
-import { bodySend, columns, dataForm, optionsComponents, row, validationSchema } from "./location.data.js"
-import {style, Backdrop,Box,Modal,Fade,} from '../shared/materialUI.js'
+import { bodySend, columns, dataForm, optionsComponents, row,optionEdification, validationSchema } from "./location.data.js"
 import { FormGenerator } from "../shared/formGenerator/FormGenerator.jsx"
+import {style, Backdrop,Box,Modal,Fade,} from '../shared/materialUI.js'
+import { TableShared } from "../shared/tableShared/TableShared.jsx"
+import { useState } from "react"
 
 export const Location = () => {
     const [openModal, setOpenModal] = useState(false);
+    const [actionForm, setActionForm] = useState('addLocation');
+    const [titleForm, setTitleForm] = useState('Agregar Ubicación');
+    const [rows, setRows] = useState(row);
+    const [bodyForm, setBodyForm] = useState(bodySend);
     const handleOpen = () => setOpenModal(true);
     const handleClose = () => setOpenModal(false);
 
-    // const [columnsLocation, setColumnsLocation] = useState(columns);
-
-    const getDataTable = (data) => {
-        console.log(data);
-        if(data.action == 'Add'){
+    const getDataTable = ({action, data}) => {
+        if(action === 'Add'){
+            setBodyForm(bodySend);
+            setTitleForm('Agregar Ubicación');
+            setActionForm('addLocation');
             handleOpen();
         }
-        if(data.action == 'addLocation'){
+        if(action === 'Edit'){
+            const editRows = data;
+            setBodyForm(editRows);
+            setTitleForm('Editar Ubicación');
+            setActionForm('editLocation');
+            handleOpen();
+        }
+        if(action === 'addLocation'){
+            const newRow = [...rows];
+            const addRows = {
+                Auditor: data.Auditor,
+                edificate: optionEdification.find(item => item.value == data.TypeEdification).label,
+                TypeEdification: data.TypeEdification,
+                Address: data.Address,
+                Date: data.Date,
+            };
+            newRow.push(addRows);
+            setRows(newRow);
+
             handleClose();
+        }
+        if(action === 'editLocation'){
+            const newRows = [...rows];
+            const editRow = newRows.find(ro => ro.id == data.id);
+            editRow.Auditor = data.Auditor;
+            editRow.edificate = optionEdification.find(item => item.value == data.TypeEdification).label,
+            editRow.TypeEdification = data.TypeEdification;
+            editRow.Address = data.Address;
+            editRow.Date = data.Date;
+            setRows(newRows);
+            handleClose();
+        }
+        if(action === 'Delete'){
+            deleteLocation(data);
         }
     }
 
-    // useEffect(()=> {
-    //     const removeEdit = columns.filter(col => col.column != 'Edit');
-    //     setColumnsLocation(removeEdit);
-    // }, [])
+    const deleteLocation = (location) => {
+        const newRow = rows.filter(ro => ro.id != location.id);
+        setRows(newRow);
+    }
 
     return (
         <div >
-            <TableShared iconTitle={'location'} title={'Ubicación'} columns={columns} rows={row} optionsComponents={optionsComponents} returnData={getDataTable} />
+            <TableShared iconTitle={'location'} title={'Ubicación'} columns={columns} rows={rows} optionsComponents={optionsComponents} returnData={getDataTable} />
 
             <div className="modal">
                 <Modal
@@ -47,10 +83,10 @@ export const Location = () => {
                     <Fade in={openModal}>
                         <Box sx={style}>
                             <FormGenerator
-                                title={'Agregar Ubicación'}
+                                title={titleForm}
                                 dataForm={dataForm}
-                                bodySend={bodySend}
-                                action={'addLocation'}
+                                bodySend={bodyForm}
+                                action={actionForm}
                                 validationSchema={validationSchema}
                                 sendForm={getDataTable}
                             />

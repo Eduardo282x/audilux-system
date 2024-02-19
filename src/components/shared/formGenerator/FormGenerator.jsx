@@ -14,7 +14,6 @@ export const FormGenerator = ({
     const inputSelect = dataForm.filter((input) => input.type == "select");
 
     const submitBtn = (values) => {
-        console.log(values);
         sendForm({ action: action, data: values });
     };
 
