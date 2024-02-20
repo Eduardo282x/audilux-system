@@ -68,8 +68,6 @@ export const Location = () => {
 
             <div className="modal">
                 <Modal
-                    aria-labelledby="transition-modal-title"
-                    aria-describedby="transition-modal-description"
                     open={openModal}
                     onClose={handleClose}
                     closeAfterTransition
