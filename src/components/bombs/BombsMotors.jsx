@@ -68,7 +68,7 @@ export const BombsMotors = () => {
 
     return (
         <div >
-        <TableShared iconTitle={'engine'} title={'Bombas y Motores'} columns={columns} rows={rows} optionsComponents={optionsComponents} returnData={getDataTable} widthDiv={'w-[80rem]'}/>
+        <TableShared iconTitle={'engine'} title={'Bombas y Motores'} columns={columns} rows={rows} optionsComponents={optionsComponents} returnData={getDataTable} widthDiv={'w-[85rem]'}/>
 
         <div className="modal">
             <Modal
