@@ -1,5 +1,5 @@
 export const Conditioning = () => {
     return (
-        <div>Conditioning</div>
+        <div>Acondicionadores Ambientales</div>
     )
 }

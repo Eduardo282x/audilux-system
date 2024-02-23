@@ -1,31 +1,43 @@
+import moment from 'moment';
+import * as yup from 'yup';
+
 export const columns = [
     {
-        header:'Auditor',
-        column: 'auditor',
+        header:'Area',
+        column: 'area',
+        type: 'string',
+        filterOption: true,
+    },
+    {
+        header:'Luminaria',
+        column: 'luminateLabel',
         type: 'string',
         filterOption: true,
         width:200
     },
     {
-        header:'Edificación',
-        column: 'edificate',
+        header:'Cantidad',
+        column: 'amount',
         type: 'string',
         filterOption: true,
-        width:200
     },
     {
-        header:'Direccion',
-        column: 'adress',
+        header:'Encendido',
+        column: 'start',
+        type: 'time',
+        filterOption: true,
+    },
+    {
+        header:'Apagado',
+        column: 'end',
+        type: 'time',
+        filterOption: true,
+    },
+    {
+        header:'Dias de uso',
+        column: 'days',
         type: 'string',
         filterOption: true,
-        width:200
-    },
-    {
-        header:'Fecha',
-        column: 'date',
-        type: 'date',
-        filterOption: false,
-        // width:200
     },
     {
         header:'Editar',
@@ -47,22 +59,74 @@ export const columns = [
 
 export const row = [
     {
-        auditor: 'Auditor',
-        edificate: 'Casa',
-        adress: 'Dirección',
-        date: '15/02/24',
+        id: 1,
+        area: 'Area1',
+        luminateLabel: 'Incandescente 15W',
+        luminate: 200,
+        amount: '2',
+        start: moment('2024-02-23T13:30'),
+        end: moment('2024-02-23T13:30'),
+        days: '28',
     },
     {
-        auditor: 'Auditor2',
-        edificate: 'Casa',
-        adress: 'Centro',
-        date: '15/02/24',
+        id: 2,
+        area: 'Area2',
+        luminateLabel: 'Incandescente 25W',
+        luminate: 200,
+        amount: '5',
+        start: moment('2024-02-23T08:00'),
+        end: moment('2024-02-23T16:00'),
+        days: '20',
     },
     {
-        auditor: 'Auditor4',
-        edificate: 'Terreno',
-        adress: 'Oeste',
-        date: '15/02/24',
+        id: 3,
+        area: 'Area3',
+        luminateLabel: 'Incandescente 55W',
+        luminate: 200,
+        amount: '20',
+        start: moment('2024-02-23T07:30'),
+        end: moment('2024-02-23T17:30'),
+        days: '30',
+    },
+    {
+        id: 4,
+        area: 'Area4',
+        luminateLabel: 'Incandescente 35W',
+        luminate: 200,
+        amount: '42',
+        start: moment('2024-02-23T09:30'),
+        end: moment('2024-02-23T22:00'),
+        days: '14',
+    },
+    {
+        id: 5,
+        area: 'Area2',
+        luminateLabel: 'Incandescente 25W',
+        luminate: 200,
+        amount: '5',
+        start: moment('2024-02-23T08:00'),
+        end: moment('2024-02-23T16:00'),
+        days: '20',
+    },
+    {
+        id: 6,
+        area: 'Area3',
+        luminateLabel: 'Incandescente 55W',
+        luminate: 200,
+        amount: '20',
+        start: moment('2024-02-23T07:30'),
+        end: moment('2024-02-23T17:30'),
+        days: '30',
+    },
+    {
+        id: 7,
+        area: 'Area4',
+        luminateLabel: 'Incandescente 35W',
+        luminate: 200,
+        amount: '42',
+        start: moment('2024-02-23T09:30'),
+        end: moment('2024-02-23T22:00'),
+        days: '14',
     },
 ];
 
@@ -70,7 +134,7 @@ export const optionsComponents = {
     showSeachInput: true,
     showAddBtn: true,
     showTable: true,
-}
+};
 
 export const typeIluminary = [
     {value: 15, label: 'Incandescente 15W'},
@@ -141,4 +205,98 @@ export const typeIluminary = [
     {value: 90, label: 'Sodio Baja Presion 90W'},
     {value: 135, label: 'Sodio Baja Presion 135W'},
     {value: 180, label: 'Sodio Baja Presion 180W'},
-]
+];
+
+export const daysOption = [
+    {value: 1, label: '1'},
+    {value: 2, label: '2'},
+    {value: 3, label: '3'},
+    {value: 4, label: '4'},
+    {value: 5, label: '5'},
+    {value: 6, label: '6'},
+    {value: 7, label: '7'},
+    {value: 8, label: '8'},
+    {value: 9, label: '9'},
+    {value: 10, label: '10'},
+    {value: 11, label: '11'},
+    {value: 12, label: '12'},
+    {value: 13, label: '13'},
+    {value: 14, label: '14'},
+    {value: 15, label: '15'},
+    {value: 16, label: '16'},
+    {value: 17, label: '17'},
+    {value: 18, label: '18'},
+    {value: 19, label: '19'},
+    {value: 20, label: '20'},
+    {value: 21, label: '21'},
+    {value: 22, label: '22'},
+    {value: 23, label: '23'},
+    {value: 24, label: '24'},
+    {value: 25, label: '25'},
+    {value: 26, label: '26'},
+    {value: 27, label: '27'},
+    {value: 28, label: '28'},
+    {value: 29, label: '29'},
+    {value: 30, label: '30'},
+    {value: 31, label: '31'},
+];
+
+
+export const bodySend = {    
+    area: '',
+    luminate: '',
+    amount: '',
+    start: '',
+    end: '',
+    days: '',
+};
+
+export const validationSchema = yup.object({
+    area: yup.string().required('El campo es requerido'),
+    luminate: yup.number().required('El campo es requerido'),
+    amount: yup.string().required('El campo es requerido'),
+    start: yup.string().required('El campo es requerido'),
+    end: yup.string().required('El campo es requerido'),
+    days: yup.number().required('El campo es requerido')
+});
+
+export const dataForm =[
+    {
+        label: 'Area',
+        type: 'text',
+        name: 'area',
+        value: '',
+    },
+    {
+        label: 'Tipo de luminaria',
+        type: 'select',
+        name: 'luminate',
+        value: '',
+        dataOption: typeIluminary
+    },
+    {
+        label: 'Cantidad',
+        type: 'text',
+        name: 'amount',
+        value: '',
+    },
+    {
+        label: 'Encendido',
+        type: 'time',
+        name: 'start',
+        value: '',
+    },
+    {
+        label: 'Apagado',
+        type: 'time',
+        name: 'end',
+        value: '',
+    },
+    {
+        label: 'Dias de uso',
+        type: 'select',
+        name: 'days',
+        value: '',
+        dataOption: daysOption
+    }
+];

@@ -15,6 +15,11 @@ export const menu = [
         location: 'luminaria'
     },
     {
+        name: 'Acondicionadores Ambientales',
+        icon: 'air',
+        location: 'acondicionadores'
+    },
+    {
         name: 'Bombas y Motores',
         icon: 'engine',
         location: 'bombas'

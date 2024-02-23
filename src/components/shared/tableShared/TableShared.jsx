@@ -25,7 +25,7 @@ import {
 
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { StyledTableCell } from "./tableShared.data.js";
+import { ParseTimeString, StyledTableCell } from "./tableShared.data.js";
 import "./tableShared.css";
 // import moment from "moment";
 
@@ -147,6 +147,7 @@ export const TableShared = ({
                                                 {/* {ro.type == "mm" ? row[ro.column] + "mm" : ""}
                                                 {ro.type == "price" ? row[ro.column] + "$" : ""} */}
                                                 {ro.type == "date" ? row[ro.column] : ""}
+                                                {ro.type == "time" ? ParseTimeString(row[ro.column]) : ""}
                                                 {/* {ro.type == "date" ? parseDate(row[ro.column]) : ""}  */}
                                                 {ro.type == "icon" && (
                                                     <IconButton

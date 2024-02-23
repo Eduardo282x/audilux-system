@@ -34,6 +34,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import SettingsIcon from '@mui/icons-material/Settings';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import SearchIcon from '@mui/icons-material/Search';
+import AcUnitIcon from '@mui/icons-material/AcUnit';
 
 export {
     Table,
@@ -69,7 +70,8 @@ export {
     HomeIcon,
     SettingsIcon,
     EngineeringIcon,
-    SearchIcon
+    SearchIcon,
+    AcUnitIcon
 };
 
 export const style = {

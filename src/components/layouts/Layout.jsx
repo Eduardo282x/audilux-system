@@ -6,6 +6,7 @@ import {
     LightbulbIcon,
     HomeIcon,
     EngineeringIcon,
+    AcUnitIcon
 } from "../shared/materialUI";
 import { menu } from "./layout.data";
 
@@ -15,6 +16,7 @@ export const Layout = () => {
         if (actionIcon == "location") return <LocationOnIcon />;
         if (actionIcon == "light") return <LightbulbIcon />;
         if (actionIcon == "engine") return <EngineeringIcon />;
+        if (actionIcon == "air") return <AcUnitIcon />;
     };
 
     return (
