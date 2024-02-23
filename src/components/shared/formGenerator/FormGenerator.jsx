@@ -24,7 +24,7 @@ export const FormGenerator = ({
     action,
     sendForm,
 }) => {
-    const inputText = dataForm.filter((input) => input.type == "text");
+    const inputText = dataForm.filter((input) => input.type == "text" || input.type == "number" );
     const inputSelect = dataForm.filter((input) => input.type == "select");
     const inputDate = dataForm.filter((input) => input.type == "date");
     const inputTime = dataForm.filter((input) => input.type == "time");
@@ -39,7 +39,7 @@ export const FormGenerator = ({
     // }
 
     const setTimeValues = (hora, name) => {
-        formik.values[name] = hora
+        formik.values[name] = hora;
     }
 
     const formik = useFormik({

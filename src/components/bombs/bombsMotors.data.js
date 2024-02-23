@@ -1,7 +1,7 @@
 import moment from 'moment';
 import * as yup from 'yup';
 
-export const capacity = [
+export const capacityOptions = [
     {value: 1, label: '1/8'},
     {value: 2, label: '1/6'},
     {value: 3, label: '1/4'},
@@ -26,8 +26,15 @@ export const capacity = [
     {value: 22, label: '60'},
     {value: 23, label: '75'},
     {value: 24, label: '100'},
-]
-
+];
+export const kitOptions = [
+    {value: 1, label: 'Bomba'},
+    {value: 2, label: 'Motor'},
+];
+export const phasesOptions = [
+    {value: 1, label: 'Monofasico'},
+    {value: 2, label: 'Trifasico'},
+];
 export const columns = [
     {
         header:'Area',
@@ -35,13 +42,23 @@ export const columns = [
         type: 'string',
         filterOption: true,
     },
-
+    {
+        header:'Equipo',
+        column: 'kitLabel',
+        type: 'string',
+        filterOption: true,
+    },
+    {
+        header:'Fases',
+        column: 'phasesLabel',
+        type: 'string',
+        filterOption: true,
+    },
     {
         header:'Capacidad',
         column: 'capacityLabel',
         type: 'string',
         filterOption: true,
-        // width:200
     },
     {
         header:'Factor Carga',
@@ -98,8 +115,12 @@ export const row = [
     {
         id: 1,
         area: 'Area1',
-        capacityLabel: capacity.find(val => val.value == 1).label,
+        capacityLabel: capacityOptions.find(val => val.value == 1).label,
         capacity: 1,
+        kitLabel: kitOptions.find(val => val.value == 1).label,
+        kit: 1,
+        phasesLabel: phasesOptions.find(val => val.value == 1).label,
+        phases: 1,
         factor: 1,
         amount: '2',
         start: moment('2024-02-23T13:30'),
@@ -109,8 +130,12 @@ export const row = [
     {
         id: 2,
         area: 'Area2',
-        capacityLabel: capacity.find(val => val.value == 2).label,
+        capacityLabel: capacityOptions.find(val => val.value == 2).label,
         capacity: 2,
+        kitLabel: kitOptions.find(val => val.value == 1).label,
+        kit: 1,
+        phasesLabel: phasesOptions.find(val => val.value == 1).label,
+        phases: 1,
         factor: 2,
         amount: '5',
         start: moment('2024-02-23T08:00'),
@@ -120,8 +145,12 @@ export const row = [
     {
         id: 3,
         area: 'Area3',
-        capacityLabel: capacity.find(val => val.value == 3).label,
+        capacityLabel: capacityOptions.find(val => val.value == 3).label,
         capacity: 3,
+        kitLabel: kitOptions.find(val => val.value == 2).label,
+        kit: 2,
+        phasesLabel: phasesOptions.find(val => val.value == 2).label,
+        phases: 2,
         factor: 3,
         amount: '20',
         start: moment('2024-02-23T07:30'),
@@ -131,8 +160,12 @@ export const row = [
     {
         id: 4,
         area: 'Area4',
-        capacityLabel: capacity.find(val => val.value == 4).label,
+        capacityLabel: capacityOptions.find(val => val.value == 4).label,
         capacity: 4,
+        kitLabel: kitOptions.find(val => val.value == 2).label,
+        kit: 2,
+        phasesLabel: phasesOptions.find(val => val.value == 2).label,
+        phases: 2,
         factor: 4,
         amount: '42',
         start: moment('2024-02-23T09:30'),
@@ -142,8 +175,12 @@ export const row = [
     {
         id: 5,
         area: 'Area2',
-        capacityLabel: capacity.find(val => val.value == 5).label,
+        capacityLabel: capacityOptions.find(val => val.value == 5).label,
         capacity: 5,
+        kitLabel: kitOptions.find(val => val.value == 1).label,
+        kit: 1,
+        phasesLabel: phasesOptions.find(val => val.value == 1).label,
+        phases: 1,
         factor: 5,
         amount: '5',
         start: moment('2024-02-23T08:00'),
@@ -153,8 +190,12 @@ export const row = [
     {
         id: 6,
         area: 'Area3',
-        capacityLabel: capacity.find(val => val.value == 6).label,
+        capacityLabel: capacityOptions.find(val => val.value == 6).label,
         capacity: 6,
+        kitLabel: kitOptions.find(val => val.value == 1).label,
+        kit: 1,
+        phasesLabel: phasesOptions.find(val => val.value == 1).label,
+        phases: 1,
         factor: 6,
         amount: '20',
         start: moment('2024-02-23T07:30'),
@@ -164,8 +205,12 @@ export const row = [
     {
         id: 7,
         area: 'Area4',
-        capacityLabel: capacity.find(val => val.value == 7).label,
+        capacityLabel: capacityOptions.find(val => val.value == 7).label,
         capacity: 7,
+        kitLabel: kitOptions.find(val => val.value == 2).label,
+        kit: 2,
+        phasesLabel: phasesOptions.find(val => val.value == 2).label,
+        phases: 2,
         factor: 7,
         amount: '42',
         start: moment('2024-02-23T09:30'),
@@ -217,19 +262,23 @@ export const daysOption = [
 
 export const bodySend = {    
     area: '',
-    luminate: '',
+    capacity: '',
     amount: '',
-    start: '',
-    end: '',
+    factor: '',
+    kit: '',
+    phases: '',
+    start: moment('2024-02-23T00:00'),
+    end: moment('2024-02-23T00:00'),
     days: '',
 };
 
 export const validationSchema = yup.object({
     area: yup.string().required('El campo es requerido'),
-    luminate: yup.number().required('El campo es requerido'),
+    capacity: yup.number().required('El campo es requerido'),
+    factor: yup.number().required('El campo es requerido'),
     amount: yup.string().required('El campo es requerido'),
-    start: yup.string().required('El campo es requerido'),
-    end: yup.string().required('El campo es requerido'),
+    start: yup.date().required('El campo es requerido'),
+    end: yup.date().required('El campo es requerido'),
     days: yup.number().required('El campo es requerido')
 });
 
@@ -245,12 +294,32 @@ export const dataForm =[
         type: 'select',
         name: 'capacity',
         value: '',
-        dataOption: capacity
+        dataOption: capacityOptions
+    },
+    {
+        label: 'Equipo',
+        type: 'select',
+        name: 'kit',
+        value: '',
+        dataOption: kitOptions
+    },
+    {
+        label: 'Fases',
+        type: 'select',
+        name: 'phases',
+        value: '',
+        dataOption: phasesOptions
     },
     {
         label: 'Cantidad',
-        type: 'text',
+        type: 'number',
         name: 'amount',
+        value: '',
+    },
+    {
+        label: 'Factor de carga',
+        type: 'number',
+        name: 'factor',
         value: '',
     },
     {

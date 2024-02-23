@@ -62,7 +62,7 @@ export const Luminaires = () => {
 
     return (
         <div >
-            <TableShared iconTitle={'light'} title={'Luminaria'} columns={columns} rows={rows} optionsComponents={optionsComponents} returnData={getDataTable}/>
+            <TableShared iconTitle={'light'} title={'Luminaria'} columns={columns} rows={rows} optionsComponents={optionsComponents} returnData={getDataTable} widthDiv={'w-[75rem]'}/>
 
             <div className="modal">
                 <Modal

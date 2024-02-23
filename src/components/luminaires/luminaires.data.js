@@ -246,8 +246,8 @@ export const bodySend = {
     area: '',
     luminate: '',
     amount: '',
-    start: '',
-    end: '',
+    start: moment('2024-02-23T00:00'),
+    end: moment('2024-02-23T00:00'),
     days: '',
 };
 

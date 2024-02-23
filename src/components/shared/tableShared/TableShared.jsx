@@ -31,6 +31,7 @@ import "./tableShared.css";
 
 export const TableShared = ({
     title,
+    widthDiv,
     columns,
     rows,
     optionsComponents,
@@ -40,6 +41,7 @@ export const TableShared = ({
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [dataFilter, setDateFilter] = useState([]);
+    const classWidth = `flex flex-col items-center justify-center bg-gray-200 rounded-3xl p-5 ${widthDiv != ''? widthDiv : 'w-[70rem]'}`
 
     const setIcon = (actionIcon) => {
         if (actionIcon == "Edit") return <EditIcon />;
@@ -91,7 +93,7 @@ export const TableShared = ({
     }, [rows]);
 
     return (
-        <div className="flex flex-col items-center justify-center bg-gray-200 rounded-3xl p-5 w-[70rem]">
+        <div className={classWidth}>
             <div className="flex items-center justify-between w-full px-5">
                 <div className="flex items-center justify-center">
                     <p className="text-[#1565c0]">{setIcon(iconTitle)}</p>
@@ -187,6 +189,7 @@ export const TableShared = ({
 
 TableShared.propTypes = {
     iconTitle: PropTypes.string,
+    widthDiv: PropTypes.string,
     title: PropTypes.string,
     columns: PropTypes.array,
     rows: PropTypes.array,
