@@ -64,7 +64,7 @@ export const Location = () => {
 
     return (
         <div >
-            <TableShared iconTitle={'location'} title={'Ubicación'} columns={columns} rows={rows} optionsComponents={optionsComponents} returnData={getDataTable} />
+            <TableShared iconTitle={'location'} title={'Ubicación'} columns={columns} rows={rows} optionsComponents={optionsComponents} returnData={getDataTable} widthDiv={'w-[80rem]'}/>
 
             <div className="modal">
                 <Modal
