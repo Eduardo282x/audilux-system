@@ -276,7 +276,7 @@ export const dataForm =[
     },
     {
         label: 'Cantidad',
-        type: 'text',
+        type: 'number',
         name: 'amount',
         value: '',
     },

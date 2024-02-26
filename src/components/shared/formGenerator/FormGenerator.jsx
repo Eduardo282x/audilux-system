@@ -7,13 +7,13 @@ import {
     Select,
     InputLabel,
 } from "../materialUI";
-import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import moment from 'moment';
-import './formGenerator.css'
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { TimePicker } from "@mui/x-date-pickers/TimePicker";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+// import moment from "moment";
+// import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import "./formGenerator.css";
 import { useFormik } from "formik";
 
 export const FormGenerator = ({
@@ -24,10 +24,12 @@ export const FormGenerator = ({
     action,
     sendForm,
 }) => {
-    const inputText = dataForm.filter((input) => input.type == "text" || input.type == "number" );
-    const inputSelect = dataForm.filter((input) => input.type == "select");
-    const inputDate = dataForm.filter((input) => input.type == "date");
-    const inputTime = dataForm.filter((input) => input.type == "time");
+    // const inputText = dataForm.filter(
+    //     (input) => input.type == "text" || input.type == "number"
+    // );
+    // const inputSelect = dataForm.filter((input) => input.type == "select");
+    // const inputDate = dataForm.filter((input) => input.type == "date");
+    // const inputTime = dataForm.filter((input) => input.type == "time");
 
     const submitBtn = (values) => {
         sendForm({ action: action, data: values });
@@ -40,7 +42,7 @@ export const FormGenerator = ({
 
     const setTimeValues = (hora, name) => {
         formik.values[name] = hora;
-    }
+    };
 
     const formik = useFormik({
         initialValues: bodySend,
@@ -56,74 +58,150 @@ export const FormGenerator = ({
             >
                 <p className="text-black font-bold text-[20px]">{title}</p>
 
-                {inputText && inputText.map((formInput, index) => (
-                    <TextField
-                        // error={formik[formInput.name] == '' ? true : false }
-                        // required
-                        // sx={{width: 250}}
-                        fullWidth
-                        label={formInput.label}
-                        type={formInput.type}
-                        key={index}
-                        disabled={formInput.readOnly}
-                        name={formInput.name}
-                        value={formik.values[formInput.name]}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        error={
-                            formik.touched[formInput.name] &&
-                            Boolean(formik.errors[formInput.name])
-                        }
-                        helperText={
-                            formik.touched[formInput.name] && formik.errors[formInput.name]
-                        }
-                        variant="outlined"
-                    />
-                ))}
-
-                {inputSelect && inputSelect.map((select, index) => (
-                    <FormControl fullWidth key={index}>
-                        <InputLabel>{select.label}</InputLabel>
-                        <Select
-                            value={formik.values[select.name]}
-                            onChange={formik.handleChange}
-                            name={select.name}
-                            label={select.label}
-                        >
-                            {select.dataOption.map((item, index) => (
-                                <MenuItem key={index} value={item.value}>
-                                    {item.label}
-                                </MenuItem>
-                            ))}
-                        </Select>
-                    </FormControl>
-                ))}
-
-                {inputDate && inputDate.map((formDate, index) => (
-                    <LocalizationProvider key={index} dateAdapter={AdapterMoment}>
-                        <DatePicker
+                {dataForm && dataForm.map((form, indexForm) => (
+                    (form.type == 'text' &&
+                        <TextField
                             fullWidth
-                            label={formDate.label}
-                            value={formik.values.start}
-                            onChange={(date) => formik.setFieldValue("start", date)}
-                            renderInput={(params) => <TextField {...params} />}
-                            maxDate={moment().toDate()}
+                            label={form.label}
+                            type={form.type}
+                            key={indexForm}
+                            disabled={form.readOnly}
+                            name={form.name}
+                            value={formik.values[form.name]}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            error={
+                                formik.touched[form.name] && Boolean(formik.errors[form.name])
+                            }
+                            helperText={
+                                formik.touched[form.name] && formik.errors[form.name]
+                            }
+                            variant="outlined"
                         />
-                    </LocalizationProvider>
-                ))}
-
-                {inputTime && inputTime.map((formTime, index) => (
-                    <LocalizationProvider key={index} dateAdapter={AdapterMoment}>
-                        <DemoContainer components={['TimePicker']}>
-                            <TimePicker 
-                                value={formik.values[formTime.name]}
-                                onChange={(event) => setTimeValues(event, formTime.name)}
-                                sx={{width: '336px'}}
-                                label={formTime.label} 
+                    ) ||
+                    (form.type == 'number' &&
+                        <TextField
+                            fullWidth
+                            label={form.label}
+                            type={form.type}
+                            key={indexForm}
+                            disabled={form.readOnly}
+                            name={form.name}
+                            value={formik.values[form.name]}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            error={
+                                formik.touched[form.name] && Boolean(formik.errors[form.name])
+                            }
+                            helperText={
+                                formik.touched[form.name] && formik.errors[form.name]
+                            }
+                            variant="outlined"
+                        />
+                    ) ||
+                    (form.type == 'select' &&
+                        <FormControl fullWidth key={indexForm}>
+                            <InputLabel>{form.label}</InputLabel>
+                            <Select
+                                value={formik.values[form.name]}
+                                onChange={formik.handleChange}
+                                name={form.name}
+                                label={form.label}
+                            >
+                                {form.dataOption.map((item, index) => (
+                                    <MenuItem key={index} value={item.value}>
+                                        {item.label}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                    ) ||
+                    (form.type == 'time' &&
+                        <LocalizationProvider key={indexForm} dateAdapter={AdapterMoment}>
+                            <DemoContainer components={["TimePicker"]}>
+                                <TimePicker
+                                    value={formik.values[form.name]}
+                                    onChange={(event) => setTimeValues(event, form.name)}
+                                    sx={{ width: "336px" }}
+                                    label={form.label}
                                 />
-                        </DemoContainer>
-                    </LocalizationProvider>
-                ))}
+                            </DemoContainer>
+                        </LocalizationProvider>
+
+                    )
+                )
+
+                )}
+
+                {/* 
+                {inputText &&inputText.map((formInput, index) => (
+                        <TextField
+                            // error={formik[formInput.name] == '' ? true : false }
+                            // required
+                            // sx={{width: 250}}
+                            fullWidth
+                            label={formInput.label}
+                            type={formInput.type}
+                            key={index}
+                            disabled={formInput.readOnly}
+                            name={formInput.name}
+                            value={formik.values[formInput.name]}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            error={
+                                formik.touched[formInput.name] &&
+                                Boolean(formik.errors[formInput.name])
+                            }
+                            helperText={
+                                formik.touched[formInput.name] && formik.errors[formInput.name]
+                            }
+                            variant="outlined"
+                        />
+                    ))}
+
+                {inputSelect &&inputSelect.map((select, index) => (
+                        <FormControl fullWidth key={index}>
+                            <InputLabel>{select.label}</InputLabel>
+                            <Select
+                                value={formik.values[select.name]}
+                                onChange={formik.handleChange}
+                                name={select.name}
+                                label={select.label}
+                            >
+                                {select.dataOption.map((item, index) => (
+                                    <MenuItem key={index} value={item.value}>
+                                        {item.label}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                    ))}
+
+                {inputDate &&inputDate.map((formDate, index) => (
+                        <LocalizationProvider key={index} dateAdapter={AdapterMoment}>
+                            <DatePicker
+                                fullWidth
+                                label={formDate.label}
+                                value={formik.values.start}
+                                onChange={(date) => formik.setFieldValue("start", date)}
+                                renderInput={(params) => <TextField {...params} />}
+                                maxDate={moment().toDate()}
+                            />
+                        </LocalizationProvider>
+                    ))} */}
+                {/* 
+                {inputTime &&inputTime.map((formTime, index) => (
+                        <LocalizationProvider key={index} dateAdapter={AdapterMoment}>
+                            <DemoContainer components={["TimePicker"]}>
+                                <TimePicker
+                                    value={formik.values[formTime.name]}
+                                    onChange={(event) => setTimeValues(event, formTime.name)}
+                                    sx={{ width: "336px" }}
+                                    label={formTime.label}
+                                />
+                            </DemoContainer>
+                        </LocalizationProvider>
+                    ))} */}
 
                 <Button type="submit" variant="contained" disabled={!formik.isValid}>
                     Enviar
